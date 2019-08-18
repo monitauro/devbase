@@ -64,6 +64,8 @@ RUN apt-get autoremove -y \
     && find /var/log -type f | while read f; do echo -n '' > ${f}; done
 
 
+RUN pwd
+RUN ls -la
 COPY ./configs /
 
 CMD ["/usr/local/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
