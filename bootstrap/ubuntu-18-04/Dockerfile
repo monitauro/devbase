@@ -1,12 +1,12 @@
 # build image
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-LABEL description="Bootstrap image to use for dev with Ubuntu 16.04" \
+LABEL description="Bootstrap image to use for dev with Ubuntu 18.04" \
       maintainer="MoniTauro < twitter @m0n1t4ur0 >" \
       vendor=Monitauro \
-      name="monitauro.devbase.bootstrap.ubuntu-16.04"
+      name="monitauro.devbase.bootstrap.ubuntu-18.04"
 
-RUN echo "monitauro.devbase.bootstrap.ubuntu-16.04" > /image.txt
+RUN echo "monitauro.devbase.bootstrap.ubuntu-18.04" > /image.txt
 
 # TODO: Mudar TIMEZONE=UTC
 ENV TIMEZONE=America/Sao_Paulo \
@@ -17,21 +17,20 @@ ENV TIMEZONE=America/Sao_Paulo \
     TERM=xterm
 
 # bootstrap
-RUN apt-get clean -y \
-    && apt-get update -y \
-    && apt-get upgrade -y \
-    && apt-get install -y locales \
+RUN apt clean -y \
+    && apt update -y \
+    && apt upgrade -y \
+    && apt install -y locales \
     && export LANGUAGE=${LANGUAGE} \
     && export LANG=${LANG} \
     && export LC_ALL=${LC_ALL} \
     && locale-gen ${LANG} \
     && dpkg-reconfigure --frontend noninteractive locales \
-    && apt-get install --no-install-recommends -yq \
+    && apt install --no-install-recommends -yq \
         apt-transport-https \
         apt-utils \
         ca-certificates \
         lsb-release \
-        python-software-properties \
         software-properties-common \
         tzdata \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
@@ -39,9 +38,9 @@ RUN apt-get clean -y \
     && echo "${TIMEZONE}" | tee /etc/timezone \
     && dpkg-reconfigure --frontend noninteractive tzdata \
     && apt-add-repository -y multiverse \
-    && apt-get update -y \
-    && apt-get upgrade -y 
-    
+    && apt update -y \
+    && apt upgrade -y 
+
 # cleanup
 RUN apt-get autoremove -y \
     && apt-get clean -y \
