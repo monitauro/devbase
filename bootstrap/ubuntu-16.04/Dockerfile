@@ -6,6 +6,7 @@ LABEL description="Bootstrap image to use for dev with Ubuntu 16.04" \
       vendor=Monitauro \
       name="monitauro.devbase.bootstrap.ubuntu-16.04"
 
+# TODO: Mudar TIMEZONE=UTC
 ENV TIMEZONE=America/Sao_Paulo \
     LANGUAGE=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
