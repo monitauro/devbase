@@ -2,10 +2,10 @@
 docker build -t devbase-supervisor .
 
 ## UP command
-docker run -d --name php docker-php 
+docker run -d --name devbase-supervisor monitauro/devbase-supervisor:ubuntu-16.04
 
 ## LOGIN command
-docker exec -it php bash
+docker exec -it devbase-supervisor bash
 
 ## PUSH
 docker push monitauro/devbase-bootstrap:ubuntu-16.04

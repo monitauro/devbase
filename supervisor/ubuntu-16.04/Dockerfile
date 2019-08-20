@@ -6,7 +6,7 @@ LABEL description="Supervisor image to use for dev with crond" \
       vendor=Monitauro \
       name="monitauro.devbase.supervisor.ubuntu-16.04"
 
-RUN echo "monitauro.devbase.supervisor.ubuntu-16.04" > /image.txt
+RUN echo "monitauro.devbase.supervisor.ubuntu-16.04" >> /image.txt
 
 ENV SUPERVISOR_VERSION=4.0.1 \
     GOSU_VERSION=1.11
