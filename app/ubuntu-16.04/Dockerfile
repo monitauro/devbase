@@ -103,6 +103,8 @@ RUN apt-get \
     install -y -f --no-install-recommends \
         mysql-server
 ADD start-mysqld.sh /start-mysqld.sh
+RUN chmod +x /start-mysqld.sh
+
 
 # Supervisor && logrotate
 COPY ./configs/etc/supervisor/ /etc/supervisor/
