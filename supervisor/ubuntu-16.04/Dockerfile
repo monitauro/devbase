@@ -63,7 +63,6 @@ RUN apt-get autoremove -y \
     && find /var/cache -type f -delete \
     && find /var/log -type f | while read f; do echo -n '' > ${f}; done
 
-
 COPY ./configs /
 
 CMD ["/usr/local/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
