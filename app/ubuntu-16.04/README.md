@@ -15,6 +15,7 @@ docker push monitauro/ubuntu-16.04-base:latest
 docker build -t devphp .
 
 ## UP command
+docker run -p 9001:9001 -p 80:80 -d --name devphp_env devphp 
 docker run -p 9001:9001 -p 80:80  -p 3306:3306 -d --name devphp_env devphp 
 docker run -p <host_port1>:<container_port1> -p <host_port2>:<container_port2>
 
@@ -34,7 +35,7 @@ docker rmi $(docker images -q) --force
 ``` sh
 # run application
 docker run \
-    -p 9001:9001 -p 80:80  -p 3306:3306 \
+    -p 9001:9001 -p 80:80 \
     -v /$(pwd):/app \
     -v /$(pwd)/docker/nginx.conf:/etc/nginx/sites-enabled/default:ro \
      -d --name devphp_env devphp 
