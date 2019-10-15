@@ -77,6 +77,7 @@ RUN mkdir /artifacts \
 RUN bash /installers/openssl.sh
 
 # configure NGINX from source
+
 RUN bash /installers/nginx.sh
 COPY ./configs/etc/nginx/nginx.conf /etc/nginx/nginx.conf
 
